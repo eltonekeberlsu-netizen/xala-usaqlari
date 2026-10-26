@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xala Uşaqları | Premium Ailə Saytı</title>
+
+<style>
+:root {
+    --black: #090909;
+    --dark: #121212;
+    --card: #171717;
+    --gold: #d4af37;
+    --light-gold: #f5df91;
+    --text: #f5f1e7;
+    --muted: #aaa397;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+header {
+    min-height: 400px;
+    padding: 75px 20px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, #3b2e0e 0%, transparent 65%),
+        linear-gradient(145deg, #080808, #18140a, #080808);
+    border-bottom: 1px solid #8c702b;
+}
+
+.crown {
+    font-size: 45px;
+    color: var(--gold);
+}
+
+header h1 {
+    color: var(--light-gold);
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 7vw, 68px);
+    letter-spacing: 3px;
+    margin: 12px 0;
+    text-shadow: 0 0 25px #d4af3730;
+}
+
+header p {
+    color: #d0c6ad;
+    font-size: 17px;
+}
+
+.creator {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 9px 22px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    color: var(--light-gold);
+    background: #d4af3710;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    background: #0c0c0cf2;
+    border-bottom: 1px solid #40351b;
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--light-gold);
+    padding: 8px 17px;
+    border-radius: 25px;
+    transition: .25s;
+}
+
+nav a:hover {
+    color: #000;
+    background: var(--gold);
+}
+
+section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 65px 22px;
+}
+
+.section-title {
+    text-align: center;
+    font-family: Georgia, serif;
+    color: var(--light-gold);
+    font-size: clamp(27px, 4vw, 38px);
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gold-line {
+    width: 75px;
+    height: 2px;
+    background: var(--gold);
+    margin: 18px auto 28px;
+}
+
+.intro {
+    max-width: 800px;
+    margin: auto;
+    padding: 32px;
+    text-align: center;
+    background: linear-gradient(145deg, #181818, #101010);
+    border: 1px solid #51421e;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px #0008;
+}
+
+.intro strong {
+    color: var(--light-gold);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid #473a1d;
+    border-radius: 12px;
+    padding: 22px 10px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: var(--gold);
+}
+
+.stat span {
+    color: var(--muted);
+}
+
+.search-box {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    padding: 14px 20px;
+    color: var(--text);
+    background: #151515;
+    border: 1px solid #796128;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box:focus {
+    border-color: var(--light-gold);
+    box-shadow: 0 0 15px #d4af371c;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.member {
+    position: relative;
+    overflow: hidden;
+    padding: 28px 20px;
+    text-align: center;
+    background: linear-gradient(150deg, #1c1c1c, #101010);
+    border: 1px solid #42361d;
+    border-radius: 14px;
+    transition: transform .3s, border-color .3s,
+                box-shadow .3s;
+}
+
+.member::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+        90deg, transparent, var(--gold), transparent
+    );
+}
+
+.member:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px #0008,
+                0 0 18px #d4af3710;
+}
+
+.avatar {
+    width: 78px;
+    height: 78px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 17px;
+    font-size: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #40351c, #17130a);
+    border: 1px solid var(--gold);
+}
+
+.member h3 {
+    font-family: Georgia, serif;
+    color: var(--light-gold);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.age {
+    display: inline-block;
+    color: #080808;
+    background: linear-gradient(135deg, #f5df91, #b18a27);
+    padding: 3px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.role {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.member p:last-child {
+    font-size: 14px;
+    color: #c1baad;
+}
+
+.hidden {
+    display: none;
+}
+
+.family-note {
+    text-align: center;
+    padding: 48px 25px;
+    background:
+        radial-gradient(ellipse at top, #403214, transparent 70%),
+        #121212;
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+}
+
+.family-note h2 {
+    font-family: Georgia, serif;
+    color: var(--light-gold);
+    font-size: clamp(26px, 4vw, 38px);
+    margin-bottom: 16px;
+}
+
+.family-note p {
+    max-width: 700px;
+    margin: auto;
+    color: #d0c6ad;
+}
+
+.family-note .signature {
+    color: var(--gold);
+    margin-top: 22px;
+}
+
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    background: #080808;
+    color: #8e8779;
+    border-top: 1px solid #40351b;
+    font-size: 14px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+#noResults {
+    text-align: center;
+    color: var(--light-gold);
+    padding: 20px;
+}
+
+@media (max-width: 800px) {
+    .members {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .members, .stats {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 55px 18px;
+    }
+
+    header h1 {
+        letter-spacing: 1px;
+    }
+
+    section {
+        padding: 45px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="crown">♛</div>
+    <h1>Xala Uşaqları</h1>
+    <p>Doqquz ürək, bir ailə, sonsuz xatirələr.</p>
+    <div class="creator">✦ Saytın yaradıcısı: Elton ✦</div>
+</header>
+
+<nav>
+    <a href="#haqqimizda">Haqqımızda</a>
+    <a href="#uzvler">Ailə üzvləri</a>
+    <a href="#mesaj">Ailə dəyərləri</a>
+</nav>
+
+<section id="haqqimizda">
+    <h2 class="section-title">Ailəmizin hekayəsi</h2>
+    <div class="gold-line"></div>
+    <p class="section-description">
+        Ən qiymətli sərvətimiz ailəmizdir.
+    </p>
+
+    <div class="intro">
+        <p>
+            <strong>Xala Uşaqları</strong> ailə bağlarımızı,
+            birlik və sevgimizi əks etdirən xüsusi bir saytdır.
+            Hər birimizin öz məqsədi, arzuları və həyat yolu var.
+            Bizi birləşdirən isə eyni ailənin üzvü olmağımızdır.
+        </p>
+        <p style="margin-top: 14px;">
+            Bu sayt Elton tərəfindən ailəmizin üzvlərini tanıtmaq
+            və gözəl xatirələrimizi yaşatmaq üçün hazırlanıb.
+        </p>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <strong>09</strong>
+            <span>Ailə üzvü</span>
+        </div>
+        <div class="stat">
+            <strong>∞</strong>
+            <span>Sonsuz xatirələr</span>
+        </div>
+        <div class="stat">
+            <strong>♛</strong>
+            <span>Bir ailə, bir ürək</span>
+        </div>
+    </div>
+</section>
+
+<section id="uzvler">
+    <h2 class="section-title">Ailə üzvlərimiz</h2>
+    <div class="gold-line"></div>
+    <p class="section-description">
+        Hər bir üzvümüz ailəmizin dəyərli bir parçasıdır.
+    </p>
+
+    <input
+        type="search"
+        class="search-box"
+        id="search"
+        placeholder="⌕  Ailə üzvünün adını yaz..."
+        aria-label="Ailə üzvləri arasında axtar"
+    >
+
+    <div class="members" id="members">
+
+        <article class="member" data-name="zehra">
+            <div class="avatar">👩🏻</div>
+            <h3>Zəhra</h3>
+            <span class="age">22 yaş</span>
+            <p class="role">Ailəmizin üzvü</p>
+            <p>Evlidir. Sumqayıt Texniki kolleci bitirib.</p>
+        </article>
+
+        <article class="member" data-name="zeyneb">
+            <div class="avatar">🎓</div>
+            <h3>Zeynəb</h3>
+            <span class="age">21 yaş</span>
+            <p class="role">Təhsilini başa vurub</p>
+            <p>Lənkəran Tibb Kollecini bitirib.</p>
+        </article>
+
+        <article class="member" data-name="rasime">
+            <div class="avatar">📚</div>
+            <h3>Rasimə</h3>
+            <span class="age">20 yaş</span>
+            <p class="role">Təhsilini başa vurub</p>
+            <p>Azərbaycan Pedaqoji Kollecini bitirib.</p>
+        </article>
+
+        <article class="member" data-name="elton">
+            <div class="avatar">💻</div>
+            <h3>Elton</h3>
+            <span class="age">20 yaş</span>
+            <p class="role">Saytın yaradıcısı</p>
+            <p>LDU-da Kompüter mühəndisliyi ixtisası üzrə 3-cü kursda oxuyur.</p>
+        </article>
+
+        <article class="member" data-name="resul">
+            <div class="avatar">🎓</div>
+            <h3>Rəsul</h3>
+            <span class="age">18 yaş</span>
+            <p class="role">Universitet tələbəsi</p>
+            <p>MAA-da Logistika və nəqliyyat texnologiyaları mühəndisliyi üzrə 1-ci kursda oxuyur.</p>
+        </article>
+
+        <article class="member" data-name="yusif">
+            <div class="avatar">📖</div>
+            <h3>Yusif</h3>
+            <span class="age">17 yaş</span>
+            <p class="role">Məktəb şagirdi</p>
+            <p>11-ci sinifdə oxuyur.</p>
+        </article>
+
+        <article class="member" data-name="eltac">
+            <div class="avatar">🌟</div>
+            <h3>Eltac</h3>
+            <span class="age">14 yaş</span>
+            <p class="role">Məktəb şagirdi</p>
+            <p>9-cu sinifdə oxuyur.</p>
+        </article>
+
+        <article class="member" data-name="cosqun">
+            <div class="avatar">⚽</div>
+            <h3>Coşqun</h3>
+            <span class="age">12 yaş</span>
+            <p class="role">Məktəb şagirdi</p>
+            <p>7-ci sinifdə oxuyur.</p>
+        </article>
+
+        <article class="member" data-name="elza">
+            <div class="avatar">🌷</div>
+            <h3>Elza</h3>
+            <span class="age">12 yaş</span>
+            <p class="role">Məktəb şagirdi</p>
+            <p>7-ci sinifdə oxuyur.</p>
+        </article>
+
+    </div>
+
+    <p id="noResults" hidden>Bu adda ailə üzvü tapılmadı.</p>
+</section>
+
+<section id="mesaj">
+    <div class="family-note">
+        <h2>♛ Ailə ən böyük sərvətdir</h2>
+        <p>
+            Həyatda uğurlar, arzular və məqsədlər dəyişə bilər.
+            Amma ailənin dəyəri hər zaman qalır.
+            Hər birimizin gələcəyi parlaq, yolu açıq olsun!
+        </p>
+        <p class="signature">Qürurla Elton tərəfindən hazırlanıb ✦</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <strong>Xala Uşaqları</strong></p>
+    <p>Qara və qızılı premium dizayn · Elton</p>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const members = document.querySelectorAll(".member");
+const noResults = document.getElementById("noResults");
+
+search.addEventListener("input", function () {
+    const query = this.value
+        .toLocaleLowerCase("az")
+        .trim();
+
+    let count = 0;
+
+    members.forEach(function (member) {
+        const name = member.dataset.name;
+        const visible = name.includes(query);
+
+        member.classList.toggle("hidden", !visible);
+
+        if (visible) count++;
+    });
+
+    noResults.hidden = count !== 0;
+});
+</script>
+
+</body>
+</html>
